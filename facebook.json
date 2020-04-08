@@ -1,173 +1,198 @@
 {
-    "vType": "array",
-    "elem": {
-        "vType": "object",
-        "id": {
-            "vType": "id_string",
-            "required": 1
-        },
-        "message": {
-            "vType": "text",
-            "required": 1
-        },
-        "published": {
-            "vType": "int",
-            "required": 1
-        },
-        "entities": {
-            "vType": "array",
-            "required": 0,
-            "elem": {
-                "vType": "object",
-                "type": {
-                    "vType": "text",
-                    "required": 1
-                },
-                "value": {
-                    "vType": "url",
-                    "required": 1
-                },
-                "start": {
-                    "vType": "int",
-                    "required": 1
-                },
-                "end": {
-                    "vType": "int",
-                    "required": 1
-                }
-            }
-        },
-        "user": {
-            "vType": "object",
-            "required": 1,
-            "id": {
-                "vType": "id_string",
-                "required": 1
-            },
-            "name": {
-                "vType": "text",
-                "required": 1
-            },
-            "avatar": {
-                "vType": "url",
-                "required": 1
-            },
-            "cover": {
-                "vType": "url",
-                "required": 0
-            },
-            "likes": {
-                "vType": "int",
-                "required": 1
-            }
-        },
-        "media": {
-            "vType": "array",
-            "required": 1,
-            "elem": {
-                "vType": "object",
-                "type": {
-                    "vType": "text",
-                    "required": 1
-                },
-                "url": {
-                    "vType": "url",
-                    "required": 1
-                },
-                "caption": {
-                    "vType": "text",
-                    "required": 0
-                },
-                "title": {
-                    "vType": "text",
-                    "required": 0
-                },
-                "caption_entities": {
-                    "vType": "array",
-                    "required": 0,
-                    "elem": {
-                        "vType": "object",
-                        "type": {
-                            "vType": "text",
-                            "required": 1
-                        },
-                        "value": {
-                            "vType": "url",
-                            "required": 1
-                        },
-                        "start": {
-                            "vType": "int",
-                            "required": 1
-                        },
-                        "end": {
-                            "vType": "int",
-                            "required": 1
-                        }
-                    }
-                },
-                "title_entities": {
-                    "vType": "array",
-                    "required": 0,
-                    "elem": {
-                        "vType": "object",
-                        "type": {
-                            "vType": "text",
-                            "required": 1
-                        },
-                        "value": {
-                            "vType": "url",
-                            "required": 1
-                        },
-                        "start": {
-                            "vType": "int",
-                            "required": 1
-                        },
-                        "end": {
-                            "vType": "int",
-                            "required": 1
-                        }
-                    }
-                }
-            }
-        },
-        "reactions": {
-            "vType": "array",
-            "required": 1,
-            "elem": {
-                "vType": "object",
-                "type": {
-                    "vType": "text",
-                    "required": 1
-                },
-                "icon_url": {
-                    "vType": "url",
-                    "required": 1
-                },
-                "count": {
-                    "vType": "int",
-                    "required": 1
-                }
-            }
-        },
-        "likes": {
-            "vType": "int",
-            "required": 1
-        },
-        "comments": {
-            "vType": "int",
-            "required": 1
-        },
-        "shares": {
-            "vType": "int",
-            "required": 1
-        },
-        "durationSeconds": {
-            "vType": "int",
-            "required": 0
-        },
-        "status_type": {
-            "vType": "text",
-            "required": 1
-        }
-    }
+  "$id": "https:\/\/raw.githubusercontent.com\/Valota\/data-syntax-facebook\/v1.0.0\/facebook.json",
+  "$schema": "http:\/\/json-schema.org\/draft-07\/schema#",
+  "description": "facebook data syntax for Valotalive",
+  "type": "array",
+  "items": {
+	"type": "object",
+	"properties": {
+	  "id": {
+		"type": "string"
+	  },
+	  "message": {
+		"type": "string"
+	  },
+	  "published": {
+		"type": "integer"
+	  },
+	  "entities": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"type": {
+			  "type": "string"
+			},
+			"value": {
+			  "type": "string",
+			  "format": "uri"
+			},
+			"start": {
+			  "type": "integer"
+			},
+			"end": {
+			  "type": "integer"
+			}
+		  },
+		  "required": [
+			"type",
+			"value",
+			"start",
+			"end"
+		  ]
+		}
+	  },
+	  "user": {
+		"type": "object",
+		"properties": {
+		  "id": {
+			"type": "string"
+		  },
+		  "name": {
+			"type": "string"
+		  },
+		  "avatar": {
+			"type": "string",
+			"format": "uri"
+		  },
+		  "cover": {
+			"type": "string",
+			"format": "uri"
+		  },
+		  "likes": {
+			"type": "integer"
+		  }
+		}
+	  },
+	  "media": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"type": {
+			  "type": "string"
+			},
+			"url": {
+			  "type": "string",
+			  "format": "uri"
+			},
+			"caption": {
+			  "type": "string"
+			},
+			"title": {
+			  "type": "string"
+			},
+			"caption_entities": {
+			  "type": "array",
+			  "items": {
+				"type": "object",
+				"properties": {
+				  "type": {
+					"type": "string"
+				  },
+				  "value": {
+					"type": "string",
+					"format": "uri"
+				  },
+				  "start": {
+					"type": "integer"
+				  },
+				  "end": {
+					"type": "integer"
+				  }
+				},
+				"required": [
+				  "type",
+				  "value",
+				  "start",
+				  "end"
+				]
+			  }
+			},
+			"title_entities": {
+			  "type": "array",
+			  "items": {
+				"type": "object",
+				"properties": {
+				  "type": {
+					"type": "string"
+				  },
+				  "value": {
+					"type": "string",
+					"format": "uri"
+				  },
+				  "start": {
+					"type": "integer"
+				  },
+				  "end": {
+					"type": "integer"
+				  }
+				},
+				"required": [
+				  "type",
+				  "value",
+				  "start",
+				  "end"
+				]
+			  }
+			}
+		  },
+		  "required": [
+			"type",
+			"url"
+		  ]
+		}
+	  },
+	  "reactions": {
+		"type": "array",
+		"items": {
+		  "type": "object",
+		  "properties": {
+			"type": {
+			  "type": "string"
+			},
+			"icon_url": {
+			  "type": "string",
+			  "format": "uri"
+			},
+			"count": {
+			  "type": "integer"
+			}
+		  },
+		  "required": [
+			"type",
+			"icon_url",
+			"count"
+		  ]
+		}
+	  },
+	  "likes": {
+		"type": "integer"
+	  },
+	  "comments": {
+		"type": "integer"
+	  },
+	  "shares": {
+		"type": "integer"
+	  },
+	  "durationSeconds": {
+		"type": "integer"
+	  },
+	  "status_type": {
+		"type": "string"
+	  }
+	},
+	"required": [
+	  "id",
+	  "message",
+	  "published",
+	  "user",
+	  "media",
+	  "reactions",
+	  "likes",
+	  "comments",
+	  "shares",
+	  "status_type"
+	]
+  }
 }
